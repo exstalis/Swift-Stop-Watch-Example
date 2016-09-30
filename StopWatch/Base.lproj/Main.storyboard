@@ -1,14 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11134" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11201" systemVersion="16B2327e" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11106"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="StopWatch" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -16,11 +18,85 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="SsX-9N-FNH">
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="Rs4-eD-XhC">
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l5Y-0M-T2T">
+                                                <color key="backgroundColor" red="0.41568627450000001" green="0.30588235289999999" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="sfN-Kw-OSe"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLJ-NX-27J">
+                                                <color key="backgroundColor" red="0.41568627450000001" green="0.30588235289999999" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="24"/>
+                                                <state key="normal" title="reset">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="resetTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0rp-ZB-tEH"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="l5Y-0M-T2T" secondAttribute="trailing" id="9Nw-4x-6D7"/>
+                                            <constraint firstItem="l5Y-0M-T2T" firstAttribute="leading" secondItem="Rs4-eD-XhC" secondAttribute="leading" id="GPH-lv-X0X"/>
+                                            <constraint firstItem="DLJ-NX-27J" firstAttribute="leading" secondItem="Rs4-eD-XhC" secondAttribute="leading" id="KmA-ty-rw6"/>
+                                            <constraint firstAttribute="trailing" secondItem="DLJ-NX-27J" secondAttribute="trailing" id="Vzb-dE-tq4"/>
+                                            <constraint firstItem="DLJ-NX-27J" firstAttribute="height" secondItem="l5Y-0M-T2T" secondAttribute="height" id="f6g-E0-k9m"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="5qQ-5k-4Ao">
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3K5-Rm-1LW" userLabel="play">
+                                                <state key="normal" image="play_button"/>
+                                                <connections>
+                                                    <action selector="playTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9bz-ct-JZW"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9tI-tW-Rqo" userLabel="pause">
+                                                <state key="normal" image="pause_button"/>
+                                                <connections>
+                                                    <action selector="pauseTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="roX-Xg-dU2"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="Rs4-eD-XhC" firstAttribute="leading" secondItem="SsX-9N-FNH" secondAttribute="leading" id="UYs-tU-fUl"/>
+                                    <constraint firstItem="5qQ-5k-4Ao" firstAttribute="leading" secondItem="SsX-9N-FNH" secondAttribute="leading" id="fnh-qv-dZe"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="SsX-9N-FNH" secondAttribute="trailing" id="ENo-8l-6Wr"/>
+                            <constraint firstItem="SsX-9N-FNH" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="RT9-ux-Rct"/>
+                            <constraint firstItem="SsX-9N-FNH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="XIj-sx-UfS"/>
+                            <constraint firstItem="SsX-9N-FNH" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Xry-7l-beU"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="SsX-9N-FNH" secondAttribute="bottom" id="yDA-T9-Kfy"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="pauseButton" destination="9tI-tW-Rqo" id="oD4-Zj-aKP"/>
+                        <outlet property="playButton" destination="3K5-Rm-1LW" id="PgP-wp-XLN"/>
+                        <outlet property="resetButton" destination="DLJ-NX-27J" id="7dd-T4-By7"/>
+                        <outlet property="timeLabel" destination="l5Y-0M-T2T" id="Hvd-Gk-R6L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="116" y="122.78860569715144"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="pause_button" width="300" height="300"/>
+        <image name="play_button" width="300" height="300"/>
+    </resources>
 </document>
